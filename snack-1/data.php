@@ -17,4 +17,3 @@ function get_random_numbers($min, $max, $quantity)
 };
 
 $my_numbers = get_random_numbers($lowest, $highest, $total);
-var_dump($my_numbers);

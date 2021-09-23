@@ -10,7 +10,15 @@
 </head>
 
 <body>
-
+    <h1>Random numbers</h1>
+    <h4> <?= "Here are displayed $total numbers, included from a minimum value of $lowest to a maximum of $highest:" ?> </h4>
+    <div>
+        <ul>
+            <?php foreach ($my_numbers as $number) { ?>
+                <li><?= $number ?></li>
+            <?php }; ?>
+        </ul>
+    </div>
 </body>
 
 </html>
