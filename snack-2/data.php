@@ -12,3 +12,12 @@ $class_38 = [
     ['name' => 'Giulio', 'last_name' => 'Pizza', 'grades' => [10, 9, 8, 7, 9]],
     ['name' => 'Eolo', 'last_name' => 'Cardo', 'grades' => [8, 10, 8, 7, 9]],
 ];
+
+function get_grades_average($alumn_grades)
+{
+    $average = 0;
+    foreach ($alumn_grades['grades'] as $grade) {
+        $average += $grade;
+    }
+    return $average / count($alumn_grades['grades']);
+};
