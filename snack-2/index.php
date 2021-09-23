@@ -13,10 +13,27 @@
     <h1>Classe 38</h1>
     <h3>Alunni</h3>
     <ul>
+        <?php //foreach ($class_38 as $alumn)
+
+        //echo '<li><strong>Name: </strong> ' . $alumn['name'] . '<br/> <strong>Last name: </strong> '
+        //. $alumn['last_name'] . '<br/> <strong>Grade: </strong> ' . get_grades_average($alumn['grades']) . '</li>';
+        ?>
+
+
+
         <?php foreach ($class_38 as $alumn) : ?>
-            <li><?= '<strong>Name: </strong> ' . $alumn['name'] . '<br/> <strong>Last name: </strong> '
-                    . $alumn['last_name'] . '<br/> <strong>Grade: </strong> ' . get_grades_average($alumn) ?></li>
+            <li>
+                <?php foreach ($alumn as $key => $value) : ?>
+                    <div><?php if ($key != "grades") {
+                                echo "<strong>$key: </strong>" . $value;
+                            } else {
+                                echo "<strong>$key: </strong>" . get_grades_average($value);
+                            }  ?></div>
+                <?php endforeach; ?>
+            </li>
         <?php endforeach; ?>
+
+
     </ul>
 </body>
 

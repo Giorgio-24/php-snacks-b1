@@ -16,8 +16,8 @@ $class_38 = [
 function get_grades_average($alumn_grades)
 {
     $average = 0;
-    foreach ($alumn_grades['grades'] as $grade) {
+    foreach ($alumn_grades as $grade) {
         $average += $grade;
     }
-    return $average / count($alumn_grades['grades']);
+    return $average / count($alumn_grades);
 };
