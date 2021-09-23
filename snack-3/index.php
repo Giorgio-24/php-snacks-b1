@@ -11,11 +11,40 @@
 
 <body>
     <?php
-    if (strlen($name) < 3 || !filter_var($mail, FILTER_VALIDATE_EMAIL) || is_nan($age)) {
+    /*     if (strlen($name) < 3 || !filter_var($mail, FILTER_VALIDATE_EMAIL) || !is_numeric($age)) {
         echo 'Accesso negato';
     } else {
         echo 'Accesso riuscito';
-    } ?>
+    } */
+
+    switch ([$name, $mail, $age]) {
+        case ((strlen($name) > 3 && filter_var($mail, FILTER_VALIDATE_EMAIL) && is_numeric($age))):
+            echo "Accesso consentito: benvenuto $name";
+            break;
+        case ((strlen($name) < 3 && !filter_var($mail, FILTER_VALIDATE_EMAIL) && !is_numeric($age))):
+            echo 'Accesso negato: nessun parametro inserito è valido';
+            break;
+        case (strlen($name) < 3 && !filter_var($mail, FILTER_VALIDATE_EMAIL)):
+            echo 'Accesso negato: il nome inserito è troppo corto e la mail inserita non è valida';
+            break;
+        case (!is_numeric($age) && !filter_var($mail, FILTER_VALIDATE_EMAIL)):
+            echo 'Accesso negato: l\'età e la mail inserite non sono valide';
+            break;
+        case (!is_numeric($age) && strlen($name) < 3):
+            echo 'Accesso negato: l\'età inserita non è valida ed il nome inserito è troppo corto';
+            break;
+        case (strlen($name) < 3):
+            echo 'Accesso negato: il nome inserito è troppo corto.';
+            break;
+        case (!filter_var($mail, FILTER_VALIDATE_EMAIL)):
+            echo 'Accesso negato: la mail inserita non è valida.';
+            break;
+        case (!is_numeric($age)):
+            echo 'Accesso negato: l\'età inserita non è valida.';
+            break;
+    };
+
+    ?>
 </body>
 
 </html>
