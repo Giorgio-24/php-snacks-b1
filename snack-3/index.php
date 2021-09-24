@@ -16,6 +16,9 @@
     } else {
         echo 'Accesso riuscito';
     } */
+    /* 
+    var_dump(is_nan($age));
+    var_dump(is_numeric($age)); */
 
     switch ([$name, $mail, $age]) {
         case ((strlen($name) > 3 && filter_var($mail, FILTER_VALIDATE_EMAIL) && is_numeric($age))):
