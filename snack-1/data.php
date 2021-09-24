@@ -5,6 +5,10 @@ $total = 15;
 
 function get_random_numbers($min, $max, $quantity)
 {
+    //^Controllo
+    $spread = $max - $min + 1;
+    if ($spread < $quantity) $quantity = $spread;
+
     $numbers = [];
 
     while (count($numbers) < $quantity) {
