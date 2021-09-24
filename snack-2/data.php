@@ -19,5 +19,5 @@ function get_grades_average($alumn_grades)
     foreach ($alumn_grades as $grade) {
         $average += $grade;
     }
-    return $average / count($alumn_grades);
+    return round($average / count($alumn_grades));
 };
